@@ -20,6 +20,7 @@
 - (void)setUp {
     [super setUp];
 
+    _post_443970 = [NSData dataWithContentsOfFile:[[NSBundle bundleForClass:[self class]] pathForResource:@"post_443970" ofType:@"json"]];
     _post_2919215 = [NSData dataWithContentsOfFile:[[NSBundle bundleForClass:[self class]] pathForResource:@"post_2919215" ofType:@"json"]];
     _post_2919218 = [NSData dataWithContentsOfFile:[[NSBundle bundleForClass:[self class]] pathForResource:@"post_2919218" ofType:@"json"]];
     _post_2919223 = [NSData dataWithContentsOfFile:[[NSBundle bundleForClass:[self class]] pathForResource:@"post_2919223" ofType:@"json"]];
@@ -47,9 +48,7 @@
     NSDictionary *mention = [[[data objectForKey:@"entities"] objectForKey:@"mentions"] objectAtIndex:0];
     NSRange range = [text rangeForEntity:mention];
 
-    NSLog(@"range->%@ from %@", NSStringFromRange(range), mention);
-
-    STAssertTrue([[text substringWithRange:range] isEqualToString:@"@fooby"], @"mention text did not match");
+    STAssertEqualObjects(@"@fooby", [text substringWithRange:range], @"mention text did not match");
 }
 
 - (void)testBoth {
@@ -65,9 +64,7 @@
     NSDictionary *mention = [[[data objectForKey:@"entities"] objectForKey:@"mentions"] objectAtIndex:0];
     NSRange range = [text rangeForEntity:mention];
 
-    NSLog(@"range->%@ from %@", NSStringFromRange(range), mention);
-
-    STAssertTrue([[text substringWithRange:range] isEqualToString:@"@fooby"], @"mention text did not match");
+    STAssertEqualObjects(@"@fooby", [text substringWithRange:range], @"mention text did not match");
 }
 
 - (void)testEmojiOnly {
@@ -83,9 +80,7 @@
     NSDictionary *mention = [[[data objectForKey:@"entities"] objectForKey:@"mentions"] objectAtIndex:0];
     NSRange range = [text rangeForEntity:mention];
 
-    NSLog(@"range->%@ from %@", NSStringFromRange(range), mention);
-
-    STAssertTrue([[text substringWithRange:range] isEqualToString:@"@fooby"], @"mention text did not match");
+    STAssertEqualObjects(@"@fooby", [text substringWithRange:range], @"mention text did not match");
 }
 
 - (void)testContainingTag {
@@ -104,7 +99,22 @@
 
     NSDictionary *link = [[[data objectForKey:@"entities"] objectForKey:@"links"] objectAtIndex:0];
     NSRange linkRange = [text rangeForEntity:link];
-    STAssertTrue([[text substringWithRange:linkRange] isEqualToString:@"http://🍺🍺hashtag.tk"], @"mention text did not match");
+    STAssertEqualObjects(@"http://🍺🍺hashtag.tk", [text substringWithRange:linkRange], @"link text did not match");
+}
+
+- (void)testCrazyTonyMillionPost {
+    NSError *error;
+    NSDictionary *post = [NSJSONSerialization JSONObjectWithData:_post_443970 options:0 error:&error];
+
+    STAssertNil(error, @"Error decoding JSON");
+    STAssertNotNil(post, @"post was nil");
+
+    NSDictionary *data = [post objectForKey:@"data"];
+    NSString *text = [data objectForKey:@"text"];
+
+    NSDictionary *hashtag = [[[data objectForKey:@"entities"] objectForKey:@"hashtags"] objectAtIndex:0];
+    NSRange hashtagRange = [text rangeForEntity:hashtag];
+    STAssertEqualObjects(@"#lol", [text substringWithRange:hashtagRange], @"hashtag text did not match");
 }
 
 @end

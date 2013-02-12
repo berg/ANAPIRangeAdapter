@@ -15,6 +15,7 @@
 #import <SenTestingKit/SenTestingKit.h>
 
 @interface ANAPIRangeAdapterTests : SenTestCase {
+    NSData *_post_443970;
     NSData *_post_2919865;
     NSData *_post_2919215;
     NSData *_post_2919218;
