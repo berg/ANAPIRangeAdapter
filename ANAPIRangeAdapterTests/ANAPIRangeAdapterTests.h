@@ -8,6 +8,11 @@
 
 #import <SenTestingKit/SenTestingKit.h>
 
-@interface ANAPIRangeAdapterTests : SenTestCase
+@interface ANAPIRangeAdapterTests : SenTestCase {
+    NSData *_post_2919865;
+    NSData *_post_2919215;
+    NSData *_post_2919218;
+    NSData *_post_2919223;
+}
 
 @end

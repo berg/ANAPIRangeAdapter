@@ -8,12 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		6546273716C9C769009D0225 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6546273616C9C769009D0225 /* Cocoa.framework */; };
-		6546274116C9C769009D0225 /* ANAPIRangeAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 6546274016C9C769009D0225 /* ANAPIRangeAdapter.m */; };
 		6546274916C9C769009D0225 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6546274816C9C769009D0225 /* SenTestingKit.framework */; };
 		6546274A16C9C769009D0225 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6546273616C9C769009D0225 /* Cocoa.framework */; };
 		6546274D16C9C769009D0225 /* ANAPIRangeAdapter.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6546273316C9C769009D0225 /* ANAPIRangeAdapter.dylib */; };
 		6546275316C9C769009D0225 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6546275116C9C769009D0225 /* InfoPlist.strings */; };
 		6546275616C9C769009D0225 /* ANAPIRangeAdapterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6546275516C9C769009D0225 /* ANAPIRangeAdapterTests.m */; };
+		6546276116C9C7A2009D0225 /* NSString+ANAPIRangeAdapter.h in Headers */ = {isa = PBXBuildFile; fileRef = 6546275F16C9C7A2009D0225 /* NSString+ANAPIRangeAdapter.h */; };
+		6546276216C9C7A2009D0225 /* NSString+ANAPIRangeAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 6546276016C9C7A2009D0225 /* NSString+ANAPIRangeAdapter.m */; };
+		6546276916C9CEC2009D0225 /* post_2919215.json in Resources */ = {isa = PBXBuildFile; fileRef = 6546276516C9CEC2009D0225 /* post_2919215.json */; };
+		6546276A16C9CEC2009D0225 /* post_2919218.json in Resources */ = {isa = PBXBuildFile; fileRef = 6546276616C9CEC2009D0225 /* post_2919218.json */; };
+		6546276B16C9CEC2009D0225 /* post_2919223.json in Resources */ = {isa = PBXBuildFile; fileRef = 6546276716C9CEC2009D0225 /* post_2919223.json */; };
+		6546276D16C9DA7D009D0225 /* post_2919865.json in Resources */ = {isa = PBXBuildFile; fileRef = 6546276C16C9DA7D009D0225 /* post_2919865.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,14 +38,18 @@
 		6546273A16C9C769009D0225 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		6546273B16C9C769009D0225 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6546273E16C9C769009D0225 /* ANAPIRangeAdapter-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ANAPIRangeAdapter-Prefix.pch"; sourceTree = "<group>"; };
-		6546273F16C9C769009D0225 /* ANAPIRangeAdapter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ANAPIRangeAdapter.h; sourceTree = "<group>"; };
-		6546274016C9C769009D0225 /* ANAPIRangeAdapter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ANAPIRangeAdapter.m; sourceTree = "<group>"; };
 		6546274716C9C769009D0225 /* ANAPIRangeAdapterTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ANAPIRangeAdapterTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6546274816C9C769009D0225 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		6546275016C9C769009D0225 /* ANAPIRangeAdapterTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ANAPIRangeAdapterTests-Info.plist"; sourceTree = "<group>"; };
 		6546275216C9C769009D0225 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6546275416C9C769009D0225 /* ANAPIRangeAdapterTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ANAPIRangeAdapterTests.h; sourceTree = "<group>"; };
 		6546275516C9C769009D0225 /* ANAPIRangeAdapterTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ANAPIRangeAdapterTests.m; sourceTree = "<group>"; };
+		6546275F16C9C7A2009D0225 /* NSString+ANAPIRangeAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+ANAPIRangeAdapter.h"; sourceTree = "<group>"; };
+		6546276016C9C7A2009D0225 /* NSString+ANAPIRangeAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+ANAPIRangeAdapter.m"; sourceTree = "<group>"; };
+		6546276516C9CEC2009D0225 /* post_2919215.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = post_2919215.json; path = posts/post_2919215.json; sourceTree = "<group>"; };
+		6546276616C9CEC2009D0225 /* post_2919218.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = post_2919218.json; path = posts/post_2919218.json; sourceTree = "<group>"; };
+		6546276716C9CEC2009D0225 /* post_2919223.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = post_2919223.json; path = posts/post_2919223.json; sourceTree = "<group>"; };
+		6546276C16C9DA7D009D0225 /* post_2919865.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = post_2919865.json; path = posts/post_2919865.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,8 +116,8 @@
 		6546273C16C9C769009D0225 /* ANAPIRangeAdapter */ = {
 			isa = PBXGroup;
 			children = (
-				6546273F16C9C769009D0225 /* ANAPIRangeAdapter.h */,
-				6546274016C9C769009D0225 /* ANAPIRangeAdapter.m */,
+				6546275F16C9C7A2009D0225 /* NSString+ANAPIRangeAdapter.h */,
+				6546276016C9C7A2009D0225 /* NSString+ANAPIRangeAdapter.m */,
 				6546273D16C9C769009D0225 /* Supporting Files */,
 			);
 			path = ANAPIRangeAdapter;
@@ -127,6 +136,7 @@
 			children = (
 				6546275416C9C769009D0225 /* ANAPIRangeAdapterTests.h */,
 				6546275516C9C769009D0225 /* ANAPIRangeAdapterTests.m */,
+				6546276316C9CEAB009D0225 /* Resources */,
 				6546274F16C9C769009D0225 /* Supporting Files */,
 			);
 			path = ANAPIRangeAdapterTests;
@@ -141,6 +151,17 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		6546276316C9CEAB009D0225 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				6546276C16C9DA7D009D0225 /* post_2919865.json */,
+				6546276516C9CEC2009D0225 /* post_2919215.json */,
+				6546276616C9CEC2009D0225 /* post_2919218.json */,
+				6546276716C9CEC2009D0225 /* post_2919223.json */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -148,6 +169,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6546276116C9C7A2009D0225 /* NSString+ANAPIRangeAdapter.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -223,6 +245,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				6546275316C9C769009D0225 /* InfoPlist.strings in Resources */,
+				6546276916C9CEC2009D0225 /* post_2919215.json in Resources */,
+				6546276A16C9CEC2009D0225 /* post_2919218.json in Resources */,
+				6546276B16C9CEC2009D0225 /* post_2919223.json in Resources */,
+				6546276D16C9DA7D009D0225 /* post_2919865.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -249,7 +275,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6546274116C9C769009D0225 /* ANAPIRangeAdapter.m in Sources */,
+				6546276216C9C7A2009D0225 /* NSString+ANAPIRangeAdapter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -349,6 +375,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ANAPIRangeAdapter/ANAPIRangeAdapter-Prefix.pch";
+				OTHER_LDFLAGS = "-all_load";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -360,6 +387,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ANAPIRangeAdapter/ANAPIRangeAdapter-Prefix.pch";
+				OTHER_LDFLAGS = "-all_load";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
