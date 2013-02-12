@@ -16,14 +16,15 @@
 
 @implementation NSString (ANAPIRangeAdapter)
 
-static const NSUInteger EmojiLowerBound = 0xd800;
-static const NSUInteger EmojiUpperBound = 0xdbff;
-- (BOOL)isEmoji;
+static const NSUInteger SurrogateLowerBound = 0xd800;
+static const NSUInteger SurrogateUpperBound = 0xdbff;
+
+- (BOOL)isSurrogatePair;
 {
     if (self.length != 2)
         return NO;
     const unichar c = [self characterAtIndex:0];
-    return (EmojiLowerBound <= c && c <= EmojiUpperBound);
+    return (SurrogateLowerBound <= c && c <= SurrogateUpperBound);
 }
 
 - (NSRange)rangeForADNRange:(NSRange)adnRange
@@ -32,7 +33,7 @@ static const NSUInteger EmojiUpperBound = 0xdbff;
     [self enumerateSubstringsInRange:NSMakeRange(0, self.length) options:NSStringEnumerationByComposedCharacterSequences usingBlock:^(NSString *substring, NSRange substringRange, NSRange enclosingRange, BOOL *stop) {
         if (substringRange.location >= range.location + range.length) {
             *stop = YES;
-        } else if ([substring isEmoji]) {
+        } else if ([substring isSurrogatePair]) {
             if (substringRange.location < range.location)
                 range.location++;
             else

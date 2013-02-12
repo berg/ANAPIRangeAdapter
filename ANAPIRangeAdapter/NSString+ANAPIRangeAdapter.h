@@ -16,7 +16,7 @@
 
 @interface NSString (ANAPIRangeAdapter)
 
-- (BOOL)isEmoji;
+- (BOOL)isSurrogatePair;
 - (NSRange)rangeForADNRange:(NSRange)apiRange;
 - (NSRange)rangeForEntity:(NSDictionary *)entity;
 
