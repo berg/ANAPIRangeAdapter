@@ -16,34 +16,36 @@
 
 @implementation NSString (ANAPIRangeAdapter)
 
-- (NSRange)an_rangeOfCharactersForAPIRange:(NSRange)apiRange {
-    __block NSRange range = apiRange;
+static const NSUInteger EmojiLowerBound = 0xd800;
+static const NSUInteger EmojiUpperBound = 0xdbff;
+- (BOOL)isEmoji;
+{
+    if (self.length != 2)
+        return NO;
+    const unichar c = [self characterAtIndex:0];
+    return (EmojiLowerBound <= c && c <= EmojiUpperBound);
+}
 
-    [self enumerateSubstringsInRange:NSMakeRange(0, apiRange.location + apiRange.length + 1)
-                             options:NSStringEnumerationByComposedCharacterSequences
-                          usingBlock:^(NSString *substring, NSRange substringRange, NSRange enclosingRange, BOOL *stop) {
-                              if (substring.length == 2) {
-                                  unichar c = [substring characterAtIndex:0];
-
-                                  if (c >= 0xd800 && c <= 0xdfff) {
-                                      // surrogate pair, so adjust
-
-                                      if (substringRange.location > range.location) {
-                                          range.length += 1;
-                                      } else {
-                                          range.location += 1;
-                                      }
-                                  }
-                              }
-                          }];
-
+- (NSRange)rangeForADNRange:(NSRange)adnRange
+{
+    __block NSRange range = adnRange;
+    [self enumerateSubstringsInRange:NSMakeRange(0, self.length) options:NSStringEnumerationByComposedCharacterSequences usingBlock:^(NSString *substring, NSRange substringRange, NSRange enclosingRange, BOOL *stop) {
+        if (substringRange.location >= range.location + range.length) {
+            *stop = YES;
+        } else if ([substring isEmoji]) {
+            if (substringRange.location < range.location)
+                range.location++;
+            else
+                range.length++;
+        }
+    }];
     return range;
 }
 
-- (NSRange)an_rangeOfCharactersForEntity:(NSDictionary *)entity {
-    NSRange apiRange = NSMakeRange([[entity objectForKey:@"pos"] unsignedIntegerValue], [[entity objectForKey:@"len"] unsignedIntegerValue]);
+- (NSRange)rangeForEntity:(NSDictionary *)entity {
+    NSRange adnRange = NSMakeRange([[entity objectForKey:@"pos"] unsignedIntegerValue], [[entity objectForKey:@"len"] unsignedIntegerValue]);
     
-    return [self an_rangeOfCharactersForAPIRange:apiRange];
+    return [self rangeForADNRange:adnRange];
 }
 
 @end
