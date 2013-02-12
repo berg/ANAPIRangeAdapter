@@ -45,7 +45,7 @@
 
     NSString *text = [data objectForKey:@"text"];
     NSDictionary *mention = [[[data objectForKey:@"entities"] objectForKey:@"mentions"] objectAtIndex:0];
-    NSRange range = [text an_rangeOfCharactersForEntity:mention];
+    NSRange range = [text rangeForEntity:mention];
 
     NSLog(@"range->%@ from %@", NSStringFromRange(range), mention);
 
@@ -63,7 +63,7 @@
 
     NSString *text = [data objectForKey:@"text"];
     NSDictionary *mention = [[[data objectForKey:@"entities"] objectForKey:@"mentions"] objectAtIndex:0];
-    NSRange range = [text an_rangeOfCharactersForEntity:mention];
+    NSRange range = [text rangeForEntity:mention];
 
     NSLog(@"range->%@ from %@", NSStringFromRange(range), mention);
 
@@ -81,7 +81,7 @@
 
     NSString *text = [data objectForKey:@"text"];
     NSDictionary *mention = [[[data objectForKey:@"entities"] objectForKey:@"mentions"] objectAtIndex:0];
-    NSRange range = [text an_rangeOfCharactersForEntity:mention];
+    NSRange range = [text rangeForEntity:mention];
 
     NSLog(@"range->%@ from %@", NSStringFromRange(range), mention);
 
@@ -99,11 +99,11 @@
     NSString *text = [data objectForKey:@"text"];
 
     NSDictionary *mention = [[[data objectForKey:@"entities"] objectForKey:@"mentions"] objectAtIndex:0];
-    NSRange mentionRange = [text an_rangeOfCharactersForEntity:mention];
+    NSRange mentionRange = [text rangeForEntity:mention];
     STAssertTrue([[text substringWithRange:mentionRange] isEqualToString:@"@fooby"], @"mention text did not match");
 
     NSDictionary *link = [[[data objectForKey:@"entities"] objectForKey:@"links"] objectAtIndex:0];
-    NSRange linkRange = [text an_rangeOfCharactersForEntity:link];
+    NSRange linkRange = [text rangeForEntity:link];
     STAssertTrue([[text substringWithRange:linkRange] isEqualToString:@"http://🍺🍺hashtag.tk"], @"mention text did not match");
 }
 
