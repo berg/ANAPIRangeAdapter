@@ -6,5 +6,6 @@ This code is public domain, under the same license as SQLite. Please use it if y
 
 ## Authors/Contributors
 
-* [@berg](https://alpha.app.net/berg)
 * [@isaiah](https://alpha.app.net/isaiah)
+* [@jaredsinclair](https://alpha.app.net/jaredsinclair)
+* [@berg](https://alpha.app.net/berg)
